@@ -1,154 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./TASK1.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script>
-        
-        function togglemenu() {
-            document.getElementById('sidebar').classList.toggle('active');
-        }
 
-        function toggleside(event) {
-            const listItem = event.target.closest('li');
-            const subMenu = listItem.querySelector('ul');
-            if (subMenu) {
-                subMenu.classList.toggle('active');
-            }
-        }
-// -----------------------------------------for open profile box--------------------------------------------------
-        $(document).ready(function () {
-            const $profileBtn = $('#profile_btn');
-            const $proSub = $('#pro-sub');
-
-            if ($profileBtn.length && $proSub.length) {
-                // Toggle visibility when the profile button is clicked
-                $profileBtn.on('click', function (event) {
-                    event.stopPropagation(); // Prevent the click from bubbling to the document
-                    if ($proSub.css('visibility') === 'hidden' || $proSub.css('visibility') === '') {
-                        $proSub.css('visibility', 'visible');
-                    } else {
-                        $proSub.css('visibility', 'hidden');
-                    }
-                });
-
-                // Hide #pro-sub when clicking anywhere else
-                $(document).on('click', function () {
-                    $proSub.css('visibility', 'hidden');
-                });
-
-                // Prevent hiding when clicking inside #pro-sub
-                $proSub.on('click', function (event) {
-                    event.stopPropagation();
-                });
-            } else {
-                console.error("Element with id 'profile_btn' or 'pro-sub' not found.");
-            }
-        });
-      
-
-
-        // $('.hd1').on('click', function(){
-        //     $(this).closest('.Q1').css('display:visibility')
-        // })
-         
-
-       // Toggle the corresponding `.Q1` on `.hd1` click
-    $('.hd1').on('click', function (e) {
-      e.preventDefault(); // Prevent default link behavior
-      $(this).next('.Q1').slideToggle(); // Toggle visibility of the next `.Q1`
-    });
-
-       
-    </script>
-  
 </head>
+
 <body>
-    <header>
+    <header id="header-style">
         <div id="main">
             <div class="toggle-btn" onclick="togglemenu()">
                 <i class="fas fa-bars"></i>
             </div>
             <div id="input">
-             <input type="text" placeholder="search" id="in">
-             <i class="fa-solid fa-magnifying-glass" id="ico2"></i>
-            </div>
-        </div>       
-                
-        <div id="right">
-            <div id="notic">
-                <div class="count">+4</div>
-                <i class="fa-sharp fa-regular fa-bell" id="ico3"></i>
-            </div>
-
-            <div id="mess">
-                <div class="count1">+3</div>
-                <i class="fa-regular fa-message" id="ico4"></i>
+                <input type="text" placeholder="search" id="in">
+                <i class="fa-solid fa-magnifying-glass" id="ico2"></i>
             </div>
         </div>
 
-        <div id="right1">
-            <div id="pic">
-                <img src="./img/professional-profile-pictures-1080-x-1080-460wjhrkbwdcp1ig - Copy.jpg" class="pic">
-         </div>
+        <div id="main-section">
+            <div id="right">
+                <div id="notic">
+                    <div class="count">+4</div>
+                    <i class="fa-sharp fa-regular fa-bell" id="ico3"></i>
+                </div>
 
-         <div id="Profile1">
-            <div class="ne" id="profile_btn" >
-            <a href="#" id="name">k. Anderson<i class="fa-solid fa-caret-down" id="ico5" ></i></a>
-        </div>  
+                <div id="mess">
+                    <div class="count1">+3</div>
+                    <i class="fa-regular fa-message" id="ico4"></i>
+                </div>
+            </div>
+
+            <div id="right1">
+                <div id="pic">
+                    <img src="https://heroshotphotography.com/wp-content/uploads/2023/03/male-linkedin-corporate-headshot-on-white-square-1024x1024.jpg"
+                        class="pic">
+                </div>
+
+                <div id="Profile1">
+                    <div class="ne" id="profile_btn">
+                        <a href="#" id="name" style="font-weight: 900; font-size: large;">k. Anderson<i
+                                class="fa-solid fa-caret-down" id="ico5"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
 
-<div id="pro-sub">
+    <div id="pro-sub">
         <div id="box"></div>
         <h1>Kevin Anderson</h1>
         <h3>Web Designer</h3>
         <span class="divi0"></span>
-     <ul id="na">
-        <li class="pro1" id="my_profile"><a href="./myprofile.html"><i class="fa-regular fa-user"></i>My Profile</a></li>
-        <span class="divi1"></span>
-
-        <li id="pro2"><a href="#"><i class="fa-solid fa-gear"></i>Account Setting</a></li>
-        <span class="divi2"></span>
-
-        <li id="pro3"><a href="#"><i class="fa-regular fa-circle-question"></i>Neeed Help?</a></li>
-        <span class="divi3"></span>
-
-        <li id="pro4"><a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sing Out</a></li>
-     </ul>           
-</div>
-
-
-
-
-<section>
- <div>
-
-    <div id="sidebar" style="overflow-y: scroll; height: 628px;">
-        <!-- <h1>Dashboard</h1> -->
-        <!-- <div class="toggle-btn" onclick="togglemenu()">
-            <i class="fas fa-bars"></i>
-        </div> -->
-     <ul>
-        <!-- Dashboard item with unique submenu ID -->
-            <li class="me">
-                <a href="">
-                    <i class="fas fa-qrcode"></i>Dashboard
-                    
-                </a>
-                    <ul class="sub-menu">
-                        <li id="item"><a href="#">home</a></li>
-                        <li id="item"><a href="#">home</a></li>
-                        <li id="item"><a href="#">home</a></li>
-                    </ul>
+        <ul id="na">
+            <li class="pro1" id="my_profile"><a href="./myprofile.html"><i class="fa-regular fa-user"></i>My Profile</a>
             </li>
+            <span class="divi1"></span>
 
-                <!-- Profile item with unique submenu ID -->
-                <li><a href="javascript:void(0)" onclick="toggleside(event)"><i class="fa-solid fa-sliders"></i>Components<i class="fa-sharp fa-solid fa-chevron-down" id="p2"></i></a>
+            <li id="pro2"><a href="#"><i class="fa-solid fa-gear"></i>Account Setting</a></li>
+            <span class="divi2"></span>
+
+            <li id="pro3"><a href="#"><i class="fa-regular fa-circle-question"></i>Neeed Help?</a></li>
+            <span class="divi3"></span>
+
+            <li id="pro4"><a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sing Out</a></li>
+        </ul>
+    </div>
+
+
+
+
+    <section>
+        <div>
+
+            <div id="sidebar" style="overflow-y: scroll; height: 628px;">
+                <!-- <h1>Dashboard</h1> -->
+                <!-- <div class="toggle-btn" onclick="togglemenu()">
+                    <i class="fas fa-bars"></i>
+                </div> -->
+                <ul>
+                    <!-- Dashboard item with unique submenu ID -->
+                    <li class="me">
+                        <a href="">
+                            <i class="fas fa-qrcode"></i>Dashboard
+
+                        </a>
+                        <ul class="sub-menu">
+                            <li id="item"><a href="#">home</a></li>
+                            <li id="item"><a href="#">home</a></li>
+                            <li id="item"><a href="#">home</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Profile item with unique submenu ID -->
+                    <li><a href="javascript:void(0)" onclick="toggleside(event)"><i
+                                class="fa-solid fa-sliders"></i>Components<i class="fa-sharp fa-solid fa-chevron-down"
+                                id="p2"></i></a>
                         <ul class="sub-menu">
                             <li id="item"><a href="#">Alerts</a></li>
                             <li id="item"><a href="#">According</a></li>
@@ -160,391 +113,401 @@
                             <li id="item"><a href="#">List group</a></li>
                             <li id="item"><a href="#">Modal</a></li>
                         </ul>
-                    
-                </li>
 
-                <!-- Profile item with unique submenu ID -->
+                    </li>
 
-                <li id="one"><a href="javascript:void(0)" onclick="toggleside(event)"><i class="fa-solid fa-file"></i>Forms<i class="fa-sharp fa-solid fa-chevron-down" id="p3"></i> </a>
+                    <!-- Profile item with unique submenu ID -->
+
+                    <li id="one"><a href="javascript:void(0)" onclick="toggleside(event)"><i
+                                class="fa-solid fa-file"></i>Forms<i class="fa-sharp fa-solid fa-chevron-down"
+                                id="p3"></i> </a>
                         <ul class="sub-menu">
                             <li id="item"><a href="#">Form Element</a></li>
                             <li id="item"><a href="#">From Layouts</a></li>
                             <li id="item"><a href="#">From Editors</a></li>
                             <li id="item"><a href="#">From Validation</a></li>
                         </ul>
-                </li>
+                    </li>
 
-                <!-- Profile item with unique submenu ID -->
+                    <!-- Profile item with unique submenu ID -->
 
-                <li><a href="javascript:void(0)" onclick="toggleside(event)"><i class="fa-solid fa-table"></i>Tables<i class="fa-sharp fa-solid fa-chevron-down" id="p4"></i></a>
+                    <li><a href="javascript:void(0)" onclick="toggleside(event)"><i
+                                class="fa-solid fa-table"></i>Tables<i class="fa-sharp fa-solid fa-chevron-down"
+                                id="p4"></i></a>
                         <ul class="sub-menu">
                             <li id="item"><a href="#">General Tables</a></li>
                             <li id="item"><a href="#">Data Tables</a></li>
-                        
+
                         </ul>
-                </li>
+                    </li>
 
 
 
-                <!-- Profile item with unique submenu ID -->
+                    <!-- Profile item with unique submenu ID -->
 
-                <li><a href="javascript:void(0)" onclick="toggleside(event)"><i class="fa-solid fa-chart-simple"></i>Charts<i class="fa-sharp fa-solid fa-chevron-down" id="p5"></i></a>
+                    <li><a href="javascript:void(0)" onclick="toggleside(event)"><i
+                                class="fa-solid fa-chart-simple"></i>Charts<i class="fa-sharp fa-solid fa-chevron-down"
+                                id="p5"></i></a>
                         <ul class="sub-menu">
                             <li id="item"><a href="#">Chart.js</a></li>
                             <li id="item"><a href="#">ApexCharts</a></li>
                             <li id="item"><a href="#">ECharts</a></li>
                         </ul>
-                </li>
+                    </li>
 
 
-                <!-- Profile item with unique submenu ID -->
+                    <!-- Profile item with unique submenu ID -->
 
-                <li><a href="javascript:void(0)" onclick="toggleside(event)"><i class="fa-regular fa-gem"></i>Icons<i class="fa-sharp fa-solid fa-chevron-down" id="p6"></i></a>
-                    <ul class="sub-menu">
-                        <li id="item"><a href="#">Bootstrap Icons</a></li>
-                        <li id="item"><a href="#">Remix Icons</a></li>
-                        <li id="item"><a href="#">Boxicons</a></li>
-                    </ul>
-        </li>
+                    <li><a href="javascript:void(0)" onclick="toggleside(event)"><i
+                                class="fa-regular fa-gem"></i>Icons<i class="fa-sharp fa-solid fa-chevron-down"
+                                id="p6"></i></a>
+                        <ul class="sub-menu">
+                            <li id="item"><a href="#">Bootstrap Icons</a></li>
+                            <li id="item"><a href="#">Remix Icons</a></li>
+                            <li id="item"><a href="#">Boxicons</a></li>
+                        </ul>
+                    </li>
 
-     </ul>
-        <h6>PAGES</h6>
+                </ul>
+                <h6>PAGES</h6>
 
-              <ul id="side2">
-                <li><a href="#"><i class="fa-solid fa-user"></i></i>Profile</a></li>
-                <li><a href="#"><i class="fa-solid fa-question"></i>F.A.Q</a></li>
-                <li><a href="#"><i class="fa-regular fa-envelope"></i>Contact</a></li>
-                <li><a href="#"><i class="fa-solid fa-file-pen"></i></i>Register</a></li>
+                <ul id="side2">
+                    <li><a href="#"><i class="fa-solid fa-user"></i></i>Profile</a></li>
+                    <li><a href="#"><i class="fa-solid fa-question"></i>F.A.Q</a></li>
+                    <li><a href="#"><i class="fa-regular fa-envelope"></i>Contact</a></li>
+                    <li><a href="#"><i class="fa-solid fa-file-pen"></i></i>Register</a></li>
 
-              </ul>
-             
-     </div>
+                </ul>
 
-
-    <div id="main_page"  style="display: none;">
-      <div id="memo">
-         <div>
-            <h1>Profile</h1>
-             <div id="home">
-                <a href="#">Home</a>  /
-                <a href="#">Users</a>  /
-                <a href="#">Profile</a>
-             </div>
-         </div>
-        </div>
-        <div id="boxes" >
-            <div id="box1">
-                <img src="./img/img.jpg" id="img">
-                <div id="ke">Kevin Anderson</div>
-             <div id="web">Web Designer</div>
-            
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-             
-        </div>
-
-
-        <div id="box2">
-            <div class="inbox">
-                <div id="bo">
-            <ul>
-             <li><a href="#">Overview</a></li>
-             <li id="EDIT_PROFILE"><a href="./edit.html">Edit Profile</a></li>
-             <li><a href="./setting.html">Setting</a></li>
-             <li><a href="./change.html">Change Password</a></li>
-             
             </div>
-        </ul>
-    </div>
-         <div id="Overview" >
-            <h1>About</h1>
-             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio nulla  nulla et voluptatem<br>
-                et voluptatem nihil iure Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio nulla <br>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio
-             </p>
-             <div id="p">Profile</div>
-              <div id="form">
-                    <div id="NAME">
-                        <div class="NA">
-                            <h3>First Name</h3>
-                        </div>
-                        <div id="NA">
-                            Kevin Anderson
-                        </div>
-                    </div>
-                     
-                    <div id="COMP">
-                        <div class="CO">
-                            <h3>Company</h3>
-                        </div>
-                        <div id="CO">
-                            Lueilwitz, Wisoky and Leuschke
-                        </div>
-                    </div>
 
-                    <div id="COU">
-                        <div class="CU">
-                            <h3>Job</h3>
-                        </div>
-                        <div id="CU">
-                            Web Designer
+
+            <div id="main_page" style="display: none;">
+                <div id="memo">
+                    <div>
+                        <h1>Profile</h1>
+                        <div id="home">
+                            <a href="#">Home</a> /
+                            <a href="#">Users</a> /
+                            <a href="#">Profile</a>
                         </div>
                     </div>
-
-                    <div id="COUN">
-                        <div class="CON">
-                            <h3>Country</h3>
-                        </div>
-                        <div id="CON">
-                            USA
-                        </div>
-                    </div>
-
-                    <div id="ADD">
-                        <div class="AD">
-                            <h3>Address</h3>
-                        </div>
-                        <div id="AD">
-                            A 108 Adam Street, New York, NY 535022
-                        </div>
-                    </div>
-
-                    <div id="PHONE">
-                        <div class="PH">
-                            <h3>Phone</h3>
-                        </div>
-                        <div id="PH">
-                           (438) 486 3538 x2682
-                        </div>
-                    </div>
-                    
-                    <div id="EMAIL">
-                        <div class="EM">
-                            <h3>Email</h3>
-                        </div>
-                        <div id="EM">
-                          kanhdnhj@example.com
-                        </div>
-                    </div>
-              </div>
-           </div> 
-
-   <!-- -------------------------------------Edit_Profile-----------------------------------------------         -->
-           <div id="main1_EDIT" style="display: none;">
-           <div id="Edit_Profile">
-               <div id="pm">
-                    <h1>Profile image</h1>
-                    <img src="./img/img.jpg" id="my">
-               </div>
-                <button id="btn1"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
-                <button id="btn2"><i class="fa-solid fa-trash"></i></button>
-
-        <div id="Edit_from">
-            <div id="NAME1">
-                <div id="NA1">
-                    <h3>First Name</h3>
                 </div>
-                <div class="NA1">
-                  <input type="text" placeholder="  Kevin Anderson">
-                </div>
-             </div>
+                <div id="boxes">
+                    <div id="box1">
+                        <img src="./img/img.jpg" id="img">
+                        <div id="ke">Kevin Anderson</div>
+                        <div id="web">Web Designer</div>
 
-               <div id="ABOUT1">
-                <div id="AB">
-                    <h3>About</h3>
-                </div>
-                <div class="AB">
-                 <textarea rows="5" cols="17" placeholder="orem ipsum dolor sit, amet consectetur adipisicing elit. Optio nulla  nulla et voluptatem
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+
+                    </div>
+
+
+                    <div id="box2">
+                        <div class="inbox">
+                            <div id="bo">
+                                <ul>
+                                    <li><a href="#">Overview</a></li>
+                                    <li id="EDIT_PROFILE"><a href="./edit.html">Edit Profile</a></li>
+                                    <li><a href="./setting.html">Setting</a></li>
+                                    <li><a href="./change.html">Change Password</a></li>
+
+                            </div>
+                            </ul>
+                        </div>
+                        <div id="Overview">
+                            <h1>About</h1>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio nulla nulla et
+                                voluptatem<br>
+                                et voluptatem nihil iure Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio
+                                nulla <br>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio
+                            </p>
+                            <div id="p">Profile</div>
+                            <div id="form">
+                                <div id="NAME">
+                                    <div class="NA">
+                                        <h3>First Name</h3>
+                                    </div>
+                                    <div id="NA">
+                                        Kevin Anderson
+                                    </div>
+                                </div>
+
+                                <div id="COMP">
+                                    <div class="CO">
+                                        <h3>Company</h3>
+                                    </div>
+                                    <div id="CO">
+                                        Lueilwitz, Wisoky and Leuschke
+                                    </div>
+                                </div>
+
+                                <div id="COU">
+                                    <div class="CU">
+                                        <h3>Job</h3>
+                                    </div>
+                                    <div id="CU">
+                                        Web Designer
+                                    </div>
+                                </div>
+
+                                <div id="COUN">
+                                    <div class="CON">
+                                        <h3>Country</h3>
+                                    </div>
+                                    <div id="CON">
+                                        USA
+                                    </div>
+                                </div>
+
+                                <div id="ADD">
+                                    <div class="AD">
+                                        <h3>Address</h3>
+                                    </div>
+                                    <div id="AD">
+                                        A 108 Adam Street, New York, NY 535022
+                                    </div>
+                                </div>
+
+                                <div id="PHONE">
+                                    <div class="PH">
+                                        <h3>Phone</h3>
+                                    </div>
+                                    <div id="PH">
+                                        (438) 486 3538 x2682
+                                    </div>
+                                </div>
+
+                                <div id="EMAIL">
+                                    <div class="EM">
+                                        <h3>Email</h3>
+                                    </div>
+                                    <div id="EM">
+                                        kanhdnhj@example.com
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- -------------------------------------Edit_Profile-----------------------------------------------         -->
+                        <div id="main1_EDIT" style="display: none;">
+                            <div id="Edit_Profile">
+                                <div id="pm">
+                                    <h1>Profile image</h1>
+                                    <img src="./img/img.jpg" id="my">
+                                </div>
+                                <button id="btn1"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
+                                <button id="btn2"><i class="fa-solid fa-trash"></i></button>
+
+                                <div id="Edit_from">
+                                    <div id="NAME1">
+                                        <div id="NA1">
+                                            <h3>First Name</h3>
+                                        </div>
+                                        <div class="NA1">
+                                            <input type="text" placeholder="  Kevin Anderson">
+                                        </div>
+                                    </div>
+
+                                    <div id="ABOUT1">
+                                        <div id="AB">
+                                            <h3>About</h3>
+                                        </div>
+                                        <div class="AB">
+                                            <textarea rows="5" cols="17" placeholder="orem ipsum dolor sit, amet consectetur adipisicing elit. Optio nulla  nulla et voluptatem
                     et voluptatem nihil iure Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio nulla 
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio"></textarea>
-                </div>
-            </div>
+                                        </div>
+                                    </div>
 
-            <div id="COMP1">
-                <div id="COM1">
-                    <h3>Company</h3>
-                </div>
-                <div class="COM1">
-                 <input type="text" placeholder="     Lueilwitz, Wisoky and Leuschke">
-                </div>
-            </div>
+                                    <div id="COMP1">
+                                        <div id="COM1">
+                                            <h3>Company</h3>
+                                        </div>
+                                        <div class="COM1">
+                                            <input type="text" placeholder="     Lueilwitz, Wisoky and Leuschke">
+                                        </div>
+                                    </div>
 
-            <div id="JOB1">
-                <div id="JO1">
-                    <h3>Job</h3>
-                </div>
-                <div class="JO1">
-                 <input type="text" placeholder="    Web Designer">
-                </div>
-            </div>
-        
-            <div id="COuntry1">
-                <div id="COun1">
-                    <h3>Country</h3>
-                </div>
-                <div class="COun1">
-                 <input type="text" placeholder="    USA">
-                </div>
-            </div>
+                                    <div id="JOB1">
+                                        <div id="JO1">
+                                            <h3>Job</h3>
+                                        </div>
+                                        <div class="JO1">
+                                            <input type="text" placeholder="    Web Designer">
+                                        </div>
+                                    </div>
 
-            <div id="ADD1">
-                <div id="AD1">
-                    <h3>Address</h3>
-                </div>
-                <div class="AD1">
-                 <input type="text" placeholder="    A 108 Adam Street, New York, NY 535022">
-                </div>
-            </div>
+                                    <div id="COuntry1">
+                                        <div id="COun1">
+                                            <h3>Country</h3>
+                                        </div>
+                                        <div class="COun1">
+                                            <input type="text" placeholder="    USA">
+                                        </div>
+                                    </div>
 
-            <div id="PHO1">
-                <div id="PH1">
-                    <h3>Phone</h3>
-                </div>
-                <div class="PH1">
-                 <input type="text" placeholder="  (438) 486 3538 x2682">
-                </div>
-            </div>
-             
-            <div id="EMAIL1">
-                <div id="EM1">
-                    <h3>Email</h3>
-                </div>
-                <div class="EM1">
-                 <input type="text" placeholder=" kanhdnhj@example.com  ">
-                </div>
-            </div>
+                                    <div id="ADD1">
+                                        <div id="AD1">
+                                            <h3>Address</h3>
+                                        </div>
+                                        <div class="AD1">
+                                            <input type="text" placeholder="    A 108 Adam Street, New York, NY 535022">
+                                        </div>
+                                    </div>
 
+                                    <div id="PHO1">
+                                        <div id="PH1">
+                                            <h3>Phone</h3>
+                                        </div>
+                                        <div class="PH1">
+                                            <input type="text" placeholder="  (438) 486 3538 x2682">
+                                        </div>
+                                    </div>
 
-            <div id="TWIT1">
-                <div id="TW1">
-                    <h3>Twitter Profile</h3>
-                </div>
-                <div class="TW1">
-                 <input type="text" placeholder=" https://twitter.com/#">
-                </div>
-            </div>
-
-            <div id="Face1">
-                <div id="FA1">
-                    <h3>Facebook profile</h3>
-                </div>
-                <div class="FA1">
-                 <input type="text" placeholder=" https://facebook.com/#">
-                </div>
-            </div>
-
-            <div id="INT1">
-                <div id="IN1">
-                    <h3>Instragram Profile</h3>
-                </div>
-                <div class="IN1">
-                 <input type="text" placeholder=" https://instragram.com/#">
-                </div>
-            </div>
-
-            <div id="LIN1">
-                <div id="LI1">
-                    <h3>Linkedin Profile</h3>
-                </div>
-                <div class="LI1">
-                 <input type="text" placeholder=" https://linkedin.com/#">
-                </div>
-            </div>
-              <button id="save">Save Change</button>
+                                    <div id="EMAIL1">
+                                        <div id="EM1">
+                                            <h3>Email</h3>
+                                        </div>
+                                        <div class="EM1">
+                                            <input type="text" placeholder=" kanhdnhj@example.com  ">
+                                        </div>
+                                    </div>
 
 
-             </div>
-           </div>
-        </div>  
- 
+                                    <div id="TWIT1">
+                                        <div id="TW1">
+                                            <h3>Twitter Profile</h3>
+                                        </div>
+                                        <div class="TW1">
+                                            <input type="text" placeholder=" https://twitter.com/#">
+                                        </div>
+                                    </div>
+
+                                    <div id="Face1">
+                                        <div id="FA1">
+                                            <h3>Facebook profile</h3>
+                                        </div>
+                                        <div class="FA1">
+                                            <input type="text" placeholder=" https://facebook.com/#">
+                                        </div>
+                                    </div>
+
+                                    <div id="INT1">
+                                        <div id="IN1">
+                                            <h3>Instragram Profile</h3>
+                                        </div>
+                                        <div class="IN1">
+                                            <input type="text" placeholder=" https://instragram.com/#">
+                                        </div>
+                                    </div>
+
+                                    <div id="LIN1">
+                                        <div id="LI1">
+                                            <h3>Linkedin Profile</h3>
+                                        </div>
+                                        <div class="LI1">
+                                            <input type="text" placeholder=" https://linkedin.com/#">
+                                        </div>
+                                    </div>
+                                    <button id="save">Save Change</button>
 
 
-        <!-- --------------------------------------setting----------------------------------------- -->
+                                </div>
+                            </div>
+                        </div>
 
-        <div id="main2" style="display: none;" >
-            <div id="ma">
-            <div id="se1">
-               <div id="setting">
-                    <div id="sett">
-                    <h3>Email</h3>
+
+
+                        <!-- --------------------------------------setting----------------------------------------- -->
+
+                        <div id="main2" style="display: none;">
+                            <div id="ma">
+                                <div id="se1">
+                                    <div id="setting">
+                                        <div id="sett">
+                                            <h3>Email</h3>
+                                        </div>
+                                        <div class="sett">
+                                            <h3>Notifications</h3>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div id="se2">
+                                    <label class="checkbox">Change made to your account
+                                        <input type="checkbox" checked>
+                                        <span class="check"></span>
+                                    </label>
+
+                                    <label class="checkbox">Information on new products and serivers
+                                        <input type="checkbox" checked>
+                                        <span class="check"></span>
+                                    </label>
+
+                                    <label class="checkbox">Markiing and promo offers
+                                        <input type="checkbox">
+                                        <span class="check"></span>
+                                    </label>
+
+                                    <label class="checkbox">Security alert
+                                        <input type="checkbox" checked disabled>
+                                        <span class="check"></span>
+                                    </label>
+
+                                </div>
+                            </div>
+                            <button id="save">Save changes</button>
+                        </div>
+
+
+                        <!-- --------------------------------------setting----------------------------------------- -->
+
+                        <div id="change_pass" style="display: none;">
+                            <div id="chanpass">
+                                <div id="ch">
+                                    <h3>Current <br>
+                                        Password</h3>
+                                </div>
+                                <div class="pass">
+                                    <input type="password">
+                                </div>
+                            </div>
+
+                            <div id="newpass">
+                                <div id="new">
+                                    <h3>New Password</h3>
+                                </div>
+                                <div class="pass1">
+                                    <input type="password">
+                                </div>
+                            </div>
+
+                            <div id="re-pass">
+                                <div id="re">
+                                    <h3>Re-enter <br>
+                                        New Password</h3>
+                                </div>
+                                <div class="pass2">
+                                    <input type="password">
+                                </div>
+
+                            </div>
+                            <button id="save">Change Password</button>
+
+                        </div>
+
                     </div>
-                    <div class="sett">
-                    <h3>Notifications</h3>
-                    </div>
-               </div>  
+                </div>
             </div>
 
-
-                <div id="se2">
-                   <label class="checkbox">Change made to your account
-                    <input type="checkbox" checked>
-                    <span class="check"></span>
-                   </label>
-
-                   <label class="checkbox">Information on new products and serivers
-                    <input type="checkbox" checked>
-                    <span class="check"></span>
-                   </label>
-                   
-                   <label class="checkbox">Markiing and promo offers
-                    <input type="checkbox">
-                    <span class="check"></span>
-                   </label>
-
-                   <label class="checkbox">Security alert
-                    <input type="checkbox" checked disabled>
-                    <span class="check"></span>
-                   </label>
-
-                </div> 
-                </div>
-                <button id="save">Save changes</button>
-            </div>
-
-
-       <!-- --------------------------------------setting----------------------------------------- -->
-
-            <div id ="change_pass" style="display: none;">
-                <div id="chanpass">
-                    <div id="ch">
-                     <h3>Current <br>
-                        Password</h3>
-                    </div>
-                    <div class="pass">
-                        <input type="password">
-                    </div>
-                </div>
- 
-                <div id="newpass">
-                    <div id="new">
-                     <h3>New Password</h3>
-                    </div>
-                    <div class="pass1">
-                        <input type="password">
-                    </div>
-                </div>
-        
-                <div id="re-pass">
-                    <div id="re">
-                     <h3>Re-enter <br>
-                        New Password</h3>
-                    </div>
-                    <div class="pass2">
-                        <input type="password">
-                    </div>
-
-                </div>
-                <button id="save">Change Password</button>
-
-            </div>
-               
-        </div>
-    </div>
-</div>
-
-<!-- 
+            <!-- 
 <div id="homepage">
     <div>
         <div id="fpa">
@@ -562,123 +525,191 @@
 
 </div> -->
 
-</div>
+        </div>
 
 
 
-<!-- --------------------------------need help-------------------------------- -->
+        <!-- --------------------------------need help-------------------------------- -->
 
-<div id="need_help">
-        <div class="Need">
+        <div id="need_help">
+            <div class="Need">
                 <div>
-                <h1>Frequently Asked Questions</h1>
+                    <h1>Frequently Asked Questions</h1>
                     <div id="need">
-                        <a href="#">Home</a>  /
-                        <a href="#">Pages</a>  /
+                        <a href="#">Home</a> /
+                        <a href="#">Pages</a> /
                         <a href="#" id="dark">Frequently Asked Questions</a>
                     </div>
                 </div>
-        </div>
-  
+            </div>
 
 
-        <div id="need_helpboxes">
-              <div id="need_box1">
-                  <div class="need_box11">
-                     <div>
-                        <h1>Basic Questions</h1>
-                     </div>
+
+            <div id="need_helpboxes">
+                <div id="need_box1">
+                    <div class="need_box11">
+                        <div>
+                            <h1>Basic Questions</h1>
+                        </div>
                         <div class="q1">
                             <div id="Q1">1. Nisi ut ut exercitationem voluptatem esse <br>
-                                    sunt rerum?</div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa minima rerum porro est neque, perferendis exercitationem officia illo. Asperiores, saepe. Deserunt eos quibusdam ipsam itaque natus, voluptate est rerum error! adipisicing elit. Ipsa minima  </p>  
+                                sunt rerum?</div>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa minima rerum porro est
+                                neque, perferendis exercitationem officia illo. Asperiores, saepe. Deserunt eos
+                                quibusdam ipsam itaque natus, voluptate est rerum error! adipisicing elit. Ipsa minima
+                            </p>
                         </div>
 
                         <div class="q2">
                             <div id="Q2">2. Reiciendis dolores repudiandae? </div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa minima rerum porro est neque, perferendis exercitationem officia illo. Asperiores, saepe. Deserunt eos quibusdam ipsam itaque natus, voluptate est rerum error! adipisicing elit. Ipsa minima  </p>  
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa minima rerum porro est
+                                neque, perferendis exercitationem officia illo. Asperiores, saepe. Deserunt eos
+                                quibusdam ipsam itaque natus, voluptate est rerum error! adipisicing elit. Ipsa minima
+                            </p>
                         </div>
 
                         <div class="q3">
                             <div id="Q3">3. Qui qui reprehenderit ut est illo numquam <br>
                                 voluptatem?</div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa minima rerum porro est neque, perferendis exercitationem officia illo. Asperiores, saepe. Deserunt eos quibusdam ipsam  </p>  
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa minima rerum porro est
+                                neque, perferendis exercitationem officia illo. Asperiores, saepe. Deserunt eos
+                                quibusdam ipsam </p>
                         </div>
-                  </div>
+                    </div>
 
 
-                  <div class="need_box12">
-                    <div>
-                        <h1>Deserunt ut unde Corporise</h1>
-                     </div>
+                    <div class="need_box12">
+                        <div>
+                            <h1>Deserunt ut unde Corporise</h1>
+                        </div>
 
-                     <div id="qe1">
-                        <ul id="QE1">
-                           <li><a href="#" class="hd1">Cumque voluptatem recusandae blanditiis?<i class="fa-sharp fa-solid fa-chevron-down" id="down1"></i></a></li>
-                           <ul class="Q1">
-                            <li><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum distinctio reiciendis neque eum earum inventore illo eveniet natus autem possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas incidunt.</p></li>
-                           </ul>
-                           <div  id="li1"></div>
-                           <li><a href="#" class="hd1">Provident beatae eveniet placeat est aperiam repellat adipisci?<i class="fa-sharp fa-solid fa-chevron-down" id="down2"></i></a></li>
-                           <ul class="Q1">
-                            <li><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum distinctio reiciendis neque eum earum inventore illo eveniet natus autem possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas incidunt.</p></li>
-                           </ul>
-                           <div id="li2"></div>
-                           <li><a href="#">Minus aliquam modi id reprehenderit nihil?<i class="fa-sharp fa-solid fa-chevron-down" id="down3"></i></a></li> 
-                           <ul id="QE12">
-                            <li><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum distinctio reiciendis neque eum earum inventore illo eveniet natus autem possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas incidunt.</p></li>
-                           </ul>
-                           <div id="li3"></div>
-                           <li><a href="#">Quaerat qui est iusto asperiores qui est reiciendis eos et?<i class="fa-sharp fa-solid fa-chevron-down" id="down4"></i></a></li>
-                           <ul id="QE12">
-                            <li><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum distinctio reiciendis neque eum earum inventore illo eveniet natus autem possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas incidunt.</p></li>
-                           </ul>
-                           <div id="li4"></div> 
-                           <li><a href="#">Laboriosam asperiores eum?<i class="fa-sharp fa-solid fa-chevron-down" id="down5"></i></a></li>                  
-                           <ul id="QE12">
-                            <li><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum distinctio reiciendis neque eum earum inventore illo eveniet natus autem possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas incidunt.</p></li>
-                           </ul>
-                        </ul>
-                     </div>
-                  </div>
-              </div>
+                        <div id="qe1">
+                            <ul id="QE1">
+                                <li><a href="#" class="hd1">Cumque voluptatem recusandae blanditiis?<i
+                                            class="fa-sharp fa-solid fa-chevron-down" id="down1"></i></a></li>
+                                <ul class="Q1">
+                                    <li>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum
+                                            distinctio reiciendis neque eum earum inventore illo eveniet natus autem
+                                            possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas
+                                            incidunt.</p>
+                                    </li>
+                                </ul>
+                                <div id="li1"></div>
+                                <li><a href="#" class="hd1">Provident beatae eveniet placeat est aperiam repellat
+                                        adipisci?<i class="fa-sharp fa-solid fa-chevron-down" id="down2"></i></a></li>
+                                <ul class="Q1">
+                                    <li>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum
+                                            distinctio reiciendis neque eum earum inventore illo eveniet natus autem
+                                            possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas
+                                            incidunt.</p>
+                                    </li>
+                                </ul>
+                                <div id="li2"></div>
+                                <li><a href="#">Minus aliquam modi id reprehenderit nihil?<i
+                                            class="fa-sharp fa-solid fa-chevron-down" id="down3"></i></a></li>
+                                <ul id="QE12">
+                                    <li>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum
+                                            distinctio reiciendis neque eum earum inventore illo eveniet natus autem
+                                            possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas
+                                            incidunt.</p>
+                                    </li>
+                                </ul>
+                                <div id="li3"></div>
+                                <li><a href="#">Quaerat qui est iusto asperiores qui est reiciendis eos et?<i
+                                            class="fa-sharp fa-solid fa-chevron-down" id="down4"></i></a></li>
+                                <ul id="QE12">
+                                    <li>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum
+                                            distinctio reiciendis neque eum earum inventore illo eveniet natus autem
+                                            possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas
+                                            incidunt.</p>
+                                    </li>
+                                </ul>
+                                <div id="li4"></div>
+                                <li><a href="#">Laboriosam asperiores eum?<i class="fa-sharp fa-solid fa-chevron-down"
+                                            id="down5"></i></a></li>
+                                <ul id="QE12">
+                                    <li>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum
+                                            distinctio reiciendis neque eum earum inventore illo eveniet natus autem
+                                            possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas
+                                            incidunt.</p>
+                                    </li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
 
 
-              <div id="need_box2">
+                <div id="need_box2">
                     <div class="need_box21">
                         <div>
                             <h1>Laborum dolorem quam porro</h1>
-                         </div>
+                        </div>
 
-                         <div id="qe2">
+                        <div id="qe2">
                             <ul id="QE2">
-                               <li><a href="#">Debitis adipisci eius?<i class="fa-sharp fa-solid fa-chevron-down" id="down11"></i></a></li>
-                               <ul id="QE13">
-                                <li><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum distinctio reiciendis neque eum earum inventore illo eveniet natus autem possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas incidunt.</p></li>
-                               </ul>
-                               <div  id="li11"></div>
-                               <li><a href="#">Omnis fugiat quis repellendus?<i class="fa-sharp fa-solid fa-chevron-down" id="down22"></i></a></li>
-                               <ul id="QE13">
-                                <li><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum distinctio reiciendis neque eum earum inventore illo eveniet natus autem possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas incidunt.</p></li>
-                               </ul>
-                               <div id="li22"></div>
-                               <li><a href="#">Et occaecati praesentium aliquam modi incidunt?<i class="fa-sharp fa-solid fa-chevron-down" id="down33"></i></a></li> 
-                               <ul id="QE13">
-                                <li><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum distinctio reiciendis neque eum earum inventore illo eveniet natus autem possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas incidunt.</p></li>
-                               </ul>
-                               <div id="li33"></div>
-                               <li><a href="#">Quo unde eaque vero dolor quis ipsam?<i class="fa-sharp fa-solid fa-chevron-down" id="down44"></i></a></li>
-                               <ul id="QE13">
-                                <li><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum distinctio reiciendis neque eum earum inventore illo eveniet natus autem possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas incidunt.</p></li>
-                               </ul>
-                               <div id="li44"></div> 
-                               <li><a href="#">Natus sunt quo atque mollitia accusamus?<i class="fa-sharp fa-solid fa-chevron-down" id="down55"></i></a></li>                  
-                               <ul id="QE13">
-                                <li><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum distinctio reiciendis neque eum earum inventore illo eveniet natus autem possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas incidunt.</p></li>
-                               </ul>
+                                <li><a href="#">Debitis adipisci eius?<i class="fa-sharp fa-solid fa-chevron-down"
+                                            id="down11"></i></a></li>
+                                <ul id="QE13">
+                                    <li>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum
+                                            distinctio reiciendis neque eum earum inventore illo eveniet natus autem
+                                            possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas
+                                            incidunt.</p>
+                                    </li>
+                                </ul>
+                                <div id="li11"></div>
+                                <li><a href="#">Omnis fugiat quis repellendus?<i
+                                            class="fa-sharp fa-solid fa-chevron-down" id="down22"></i></a></li>
+                                <ul id="QE13">
+                                    <li>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum
+                                            distinctio reiciendis neque eum earum inventore illo eveniet natus autem
+                                            possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas
+                                            incidunt.</p>
+                                    </li>
+                                </ul>
+                                <div id="li22"></div>
+                                <li><a href="#">Et occaecati praesentium aliquam modi incidunt?<i
+                                            class="fa-sharp fa-solid fa-chevron-down" id="down33"></i></a></li>
+                                <ul id="QE13">
+                                    <li>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum
+                                            distinctio reiciendis neque eum earum inventore illo eveniet natus autem
+                                            possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas
+                                            incidunt.</p>
+                                    </li>
+                                </ul>
+                                <div id="li33"></div>
+                                <li><a href="#">Quo unde eaque vero dolor quis ipsam?<i
+                                            class="fa-sharp fa-solid fa-chevron-down" id="down44"></i></a></li>
+                                <ul id="QE13">
+                                    <li>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum
+                                            distinctio reiciendis neque eum earum inventore illo eveniet natus autem
+                                            possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas
+                                            incidunt.</p>
+                                    </li>
+                                </ul>
+                                <div id="li44"></div>
+                                <li><a href="#">Natus sunt quo atque mollitia accusamus?<i
+                                            class="fa-sharp fa-solid fa-chevron-down" id="down55"></i></a></li>
+                                <ul id="QE13">
+                                    <li>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum
+                                            distinctio reiciendis neque eum earum inventore illo eveniet natus autem
+                                            possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas
+                                            incidunt.</p>
+                                    </li>
+                                </ul>
                             </ul>
-                         </div>
+                        </div>
                     </div>
 
 
@@ -686,85 +717,96 @@
                     <div class="need_box22">
                         <div>
                             <h1>Dolore occaecati ducimus quam</h1>
-                         </div>
+                        </div>
 
-                         <div id="qe3">
+                        <div id="qe3">
                             <ul id="QE3">
-                               <li><a href="#">Debitis adipisci eius?<i class="fa-sharp fa-solid fa-chevron-down" id="down111"></i></a></li>
-                               <ul id="QE14">
-                                <li><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum distinctio reiciendis neque eum earum inventore illo eveniet natus autem possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas incidunt.</p></li>
-                               </ul>
-                               <div  id="li111"></div>
-                               <li><a href="#">Omnis fugiat quis repellendus?<i class="fa-sharp fa-solid fa-chevron-down" id="down222"></i></a></li>
-                               <ul id="QE14">
-                                <li><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum distinctio reiciendis neque eum earum inventore illo eveniet natus autem possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas incidunt.</p></li>
-                               </ul>
-                               <div id="li222"></div>
-                               <li><a href="#">Et occaecati praesentium aliquam modi incidunt?<i class="fa-sharp fa-solid fa-chevron-down" id="down333"></i></a></li> 
-                               <ul id="QE14">
-                                <li><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum distinctio reiciendis neque eum earum inventore illo eveniet natus autem possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas incidunt.</p></li>
-                               </ul>
-                               <div id="li333"></div>
-                               <li><a href="#">Quo unde eaque vero dolor quis ipsam?<i class="fa-sharp fa-solid fa-chevron-down" id="down444"></i></a></li>
-                               <ul id="QE14">
-                                <li><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum distinctio reiciendis neque eum earum inventore illo eveniet natus autem possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas incidunt.</p></li>
-                               </ul>
-                               <div id="li444"></div> 
-                               <li><a href="#">Natus sunt quo atque mollitia accusamus?<i class="fa-sharp fa-solid fa-chevron-down" id="down555"></i></a></li>                  
-                               <ul id="QE14">
-                                <li><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum distinctio reiciendis neque eum earum inventore illo eveniet natus autem possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas incidunt.</p></li>
-                               </ul>
+                                <li><a href="#">Debitis adipisci eius?<i class="fa-sharp fa-solid fa-chevron-down"
+                                            id="down111"></i></a></li>
+                                <ul id="QE14">
+                                    <li>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum
+                                            distinctio reiciendis neque eum earum inventore illo eveniet natus autem
+                                            possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas
+                                            incidunt.</p>
+                                    </li>
+                                </ul>
+                                <div id="li111"></div>
+                                <li><a href="#">Omnis fugiat quis repellendus?<i
+                                            class="fa-sharp fa-solid fa-chevron-down" id="down222"></i></a></li>
+                                <ul id="QE14">
+                                    <li>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum
+                                            distinctio reiciendis neque eum earum inventore illo eveniet natus autem
+                                            possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas
+                                            incidunt.</p>
+                                    </li>
+                                </ul>
+                                <div id="li222"></div>
+                                <li><a href="#">Et occaecati praesentium aliquam modi incidunt?<i
+                                            class="fa-sharp fa-solid fa-chevron-down" id="down333"></i></a></li>
+                                <ul id="QE14">
+                                    <li>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum
+                                            distinctio reiciendis neque eum earum inventore illo eveniet natus autem
+                                            possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas
+                                            incidunt.</p>
+                                    </li>
+                                </ul>
+                                <div id="li333"></div>
+                                <li><a href="#">Quo unde eaque vero dolor quis ipsam?<i
+                                            class="fa-sharp fa-solid fa-chevron-down" id="down444"></i></a></li>
+                                <ul id="QE14">
+                                    <li>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum
+                                            distinctio reiciendis neque eum earum inventore illo eveniet natus autem
+                                            possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas
+                                            incidunt.</p>
+                                    </li>
+                                </ul>
+                                <div id="li444"></div>
+                                <li><a href="#">Natus sunt quo atque mollitia accusamus?<i
+                                            class="fa-sharp fa-solid fa-chevron-down" id="down555"></i></a></li>
+                                <ul id="QE14">
+                                    <li>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae illum
+                                            distinctio reiciendis neque eum earum inventore illo eveniet natus autem
+                                            possimus nesciunt, accusantium cumque dolorem accusamus ab nam, voluptas
+                                            incidunt.</p>
+                                    </li>
+                                </ul>
                             </ul>
-                         </div>
+                        </div>
                     </div>
-              </div>
-        </div>
-           
-    </div>
-<!-- <div id="need_boxes" >
-  <div class="need2">
-    <div id="need_box1">
-        <div class="need_box1">
-            <div id="h1">Basic Questions
-        </div>
-        </div>
-        <div class="need_box2">
+                </div>
+            </div>
 
         </div>
-    </div>
+        <!-- <div id="need_boxes">
+            <div class="need2">
+                <div id="need_box1">
+                    <div class="need_box1">
+                        <div id="h1">Basic Questions
+                        </div>
+                    </div>
+                    <div class="need_box2">
 
-     <div id="need_box2">
-        <div class="need_box21"> 
-          <h1>Deserunt ut unde Corporise</h1>
-        </div>
-        <div class="need_box22">
+                    </div>
+                </div>
 
-        </div>
-     </div>
-  </div>
-</div> -->
-</section>
+                <div id="need_box2">
+                    <div class="need_box21">
+                        <h1>Deserunt ut unde Corporise</h1>
+                    </div>
+                    <div class="need_box22">
 
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <script src="./script.js"></script>
 </body>
+
 </html>
